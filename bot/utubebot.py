@@ -1,11 +1,10 @@
 from pyrogram import Client
-
 from .config import Config
-
 
 class UtubeBot(Client):
     def __init__(self):
         super().__init__(
+            "my_bot_session",  # Add a session name here
             bot_token=Config.BOT_TOKEN,
             api_id=Config.API_ID,
             api_hash=Config.API_HASH,
