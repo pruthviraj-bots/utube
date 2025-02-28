@@ -1,4 +1,4 @@
-pyrogram 2.0.106
+pyrogram==2.0.106
 tgcrypto
 httplib2
 oauth2client
