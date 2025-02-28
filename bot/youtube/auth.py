@@ -2,7 +2,7 @@ from typing import Optional
 import httplib2
 import os
 
-from apiclient import discovery
+from googleapiclient import discovery
 from oauth2client.client import (
     OAuth2WebServerFlow,
     FlowExchangeError,
