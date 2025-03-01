@@ -1,22 +1,18 @@
-import logging
 import os
 from flask import Flask, request
-from .utubebot import UtubeBot
-from .config import Config
 from pyrogram import Client
 
+# Initialize Flask app
 app = Flask(__name__)
 
-# Initialize the bot
-bot = UtubeBot()
-
-# Set up logging
-logging.basicConfig(level=logging.DEBUG if Config.DEBUG else logging.INFO)
-logging.getLogger("pyrogram").setLevel(
-    logging.INFO if Config.DEBUG else logging.WARNING
+# Initialize Pyrogram Client
+bot = Client(
+    "utube_bot",
+    api_id=os.getenv("API_ID"),
+    api_hash=os.getenv("API_HASH"),
+    bot_token=os.getenv("BOT_TOKEN")
 )
 
-# Define a route to handle webhook requests
 @app.route('/webhook', methods=['POST'])
 def webhook():
     update = request.get_json()
@@ -25,13 +21,13 @@ def webhook():
     return '', 200
 
 if __name__ == "__main__":
-    # Remove any existing webhook
-    bot.remove_webhook()
+    # Start the bot
+    bot.start()
 
-    # Set the new webhook
-    webhook_url = f"{Config.WEBHOOK_URL}/webhook"
-    bot.set_webhook(webhook_url)
+    # Set webhook
+    webhook_url = f"{os.getenv('WEBHOOK_URL')}/webhook"
+    bot.set_webhook(url=webhook_url)
 
-    # Run the Flask app
+    # Run Flask app
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
