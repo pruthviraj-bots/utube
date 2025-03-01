@@ -25,8 +25,8 @@ if __name__ == "__main__":
     bot.start()
 
     # Set webhook
-    webhook_url = f"{os.getenv('https://utube-c4qh.onrender.com')}/webhook"
-    bot.set_webhook(url=webhook_url)
+    webhook_url = f"{os.getenv('https://utube-c4qh.onrender.com/utube')}/webhook"
+    bot.set_webhook(url=https://utube-c4qh.onrender.com/utube)
 
     # Run Flask app
     port = int(os.environ.get('PORT', 5000))
