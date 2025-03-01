@@ -47,3 +47,5 @@ class Config:
             UPLOAD_MODE = False
 
     CRED_FILE = "auth_token.txt"
+
+    WEBHOOK_URL = os.getenv("WEBHOOK_URL")
