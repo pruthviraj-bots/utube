@@ -48,4 +48,4 @@ class Config:
 
     CRED_FILE = "auth_token.txt"
 
-    WEBHOOK_URL = os.getenv("https://utube-c4qh.onrender.com")
+    WEBHOOK_URL = os.getenv("https://utube-c4qh.onrender.com/utube")
