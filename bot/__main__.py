@@ -25,7 +25,7 @@ if __name__ == "__main__":
     bot.start()
 
     # Set webhook
-    webhook_url = f"{os.getenv('WEBHOOK_URL')}/webhook"
+    webhook_url = f"{os.getenv('https://utube-c4qh.onrender.com')}/webhook"
     bot.set_webhook(url=webhook_url)
 
     # Run Flask app
